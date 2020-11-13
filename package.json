@@ -16,10 +16,15 @@
     "url": "https://github.com/mgajin/imdb-api/issues"
   },
   "homepage": "https://github.com/mgajin/imdb-api#readme",
+  "_moduleAliases": {
+    "@api": "./src/api"
+  },
   "dependencies": {
     "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "module-alias": "^2.2.2",
     "mongoose": "^5.10.14"
   },
   "devDependencies": {
