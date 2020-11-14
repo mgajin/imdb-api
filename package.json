@@ -19,7 +19,9 @@
   "homepage": "https://github.com/mgajin/imdb-api#readme",
   "_moduleAliases": {
     "@api": "./src/api",
-    "@config": "./src/config"
+    "@config": "./src/config",
+    "@models": "./src/models",
+    "@services": "./src/services"
   },
   "dependencies": {
     "axios": "^0.21.0",
