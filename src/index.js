@@ -1,3 +1,8 @@
+require('colors')
 const app = require('./app')
 
-app.listen(3001, console.log('Server running...'))
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}...`.yellow.bold)
+})
