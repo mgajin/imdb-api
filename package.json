@@ -20,7 +20,8 @@
   "_moduleAliases": {
     "@api": "./src/api",
     "@config": "./src/config",
-    "@models": "./src/models"
+    "@models": "./src/models",
+    "@services": "./src/services"
   },
   "dependencies": {
     "axios": "^0.21.0",

@@ -1,15 +1,16 @@
 const router = require('express').Router()
+const movieService = require('@services')
 
 router.get('/', async (req, res) => {
     const query = req.query
     let movies
 
     if (query.genre) {
-        movies = []
+        movies = await movieService.getMoviesByGenre(query.genre)
     } else if (query.title) {
-        movies = []
+        movies = await movieService.getMoviesByTitle(query.title)
     } else {
-        movies = []
+        movies = await movieService.getAllMovies()
     }
 
     if (!movies) {
@@ -24,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/:movie', async (req, res) => {
     const id = req.params.movie
 
-    const movie = {} // get movie by id from service
+    const movie = await movieService.getMovieById(id)
 
     if (!movie) {
         return res.status(404).json({
@@ -34,28 +35,6 @@ router.get('/:movie', async (req, res) => {
     }
 
     res.status(200).json({ success: true, movie: movie })
-})
-
-router.post('/', async (req, res) => {
-    // validate body
-    const { title, genre, poster, rating } = req.body
-
-    const movie = {
-        title: title,
-        genre: genre,
-        poster: poster,
-        rating: rating,
-    }
-
-    // save to database
-
-    if (!movie) {
-        return res
-            .status(501)
-            .json({ success: false, message: 'could not create movie' })
-    }
-
-    res.status(201).json({ success: false, movie: movie })
 })
 
 module.exports = router

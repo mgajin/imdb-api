@@ -1,4 +1,4 @@
-export default class MovieService {
+const service = class MovieService {
     #movieRepo
 
     constructor(movieRepo) {
@@ -51,3 +51,5 @@ export default class MovieService {
         }
     }
 }
+
+module.exports = service
