@@ -7,9 +7,7 @@ const service = class MovieService {
 
     async getAllMovies() {
         try {
-            const movies = await this.#movieRepo.find()
-
-            return movies
+            return await this.#movieRepo.find()
         } catch (error) {
             console.log(error)
             return null

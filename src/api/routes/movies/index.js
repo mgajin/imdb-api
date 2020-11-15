@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/:movie', async (req, res) => {
     const id = req.params.movie
 
-    const movie = await movieService.getMovieById(id)
+    const movie = await movieService.getMovieByID(id)
 
     if (!movie) {
         return res.status(404).json({
